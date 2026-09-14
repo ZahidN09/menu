@@ -1,26 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Zahid's Projects</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="menu.css" />
 </head>
 
 <body>
-    <h1>ZAHID NAZATE</h1>
-    <img src="logo.png" width="50" />
-    <h2>MENU DE PROYECTOS</h2>
-    <div>
-        <h3>Programando con Javascript</h3>
-        <p>
-            <a href="https://juego-limones-indol.vercel.app/">Juego Limones</a>
-            Del cielo caen limones, atrapa 10 para hacer tu limonada, pero si dejas que 3 caigan al suelo deberás reiniciar de 0.
-        </p>
-        <p>
-            <a href="https://juego-cazando-ochre.vercel.app/">Juego Cazando</a>
-            Guí a tu gatito a cazar su comida antes de que acabe el tiempo.
-        </p>
-    </div>
+    <!-- Trama de telaraña de fondo -->
+    <div class="web-bg" aria-hidden="true"></div>
 
+    <div class="page">
+
+        <header class="site-header">
+            <div class="logo-wrap">
+                <img src="logo.png" width="50" alt="Logo de Zahid Nazate" />
+            </div>
+            <h1>ZAHID NAZATE</h1>
+            <p class="tagline">Portafolio de proyectos</p>
+        </header>
+
+        <main class="container">
+
+            <section class="projects">
+                <h2 class="section-title">MENU DE PROYECTOS</h2>
+
+                <h3 class="category">Programando con Javascript</h3>
+
+                <div class="project-grid">
+
+                    <article class="project-card">
+                        <span class="card-index" aria-hidden="true">01</span>
+                        <h4 class="card-title">
+                            <a href="https://juego-limones-indol.vercel.app/">Juego Limones</a>
+                        </h4>
+                        <p class="card-desc">
+                            Del cielo caen limones, atrapa 10 para hacer tu limonada, pero si dejas que 3 caigan al
+                            suelo deberás reiniciar de 0.
+                        </p>
+                        <span class="card-cta">Ver proyecto <span aria-hidden="true">→</span></span>
+                    </article>
+
+                    <article class="project-card">
+                        <span class="card-index" aria-hidden="true">02</span>
+                        <h4 class="card-title">
+                            <a href="https://juego-cazando-ochre.vercel.app/">Juego Cazando</a>
+                        </h4>
+                        <p class="card-desc">
+                            Guí a tu gatito a cazar su comida antes de que acabe el tiempo.
+                        </p>
+                        <span class="card-cta">Ver proyecto <span aria-hidden="true">→</span></span>
+                    </article>
+
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="site-footer">
+            <p>Zahid Nazate <span class="dot">•</span> Proyectos en constante construcción</p>
+        </footer>
+
+    </div>
 </body>
 
 </html>
