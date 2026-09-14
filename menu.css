@@ -323,10 +323,70 @@ h1 {
     opacity: 1;
 }
 
+/* ---------- Fila superior: ícono + número ---------- */
+.card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 4px;
+}
+
+/* Ícono-emoji del proyecto (también es enlace) */
+.card-icon {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    font-size: 1.65rem;
+    line-height: 1;
+    text-decoration: none;
+    background: linear-gradient(145deg, rgba(230, 36, 41, 0.22), rgba(31, 75, 216, 0.22));
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.35),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+    transition:
+        transform 0.3s var(--ease),
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.card-icon span {
+    display: block;
+    filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.45));
+    transition: transform 0.3s var(--ease);
+}
+
+.card-icon:hover,
+.card-icon:focus-visible {
+    transform: translateY(-3px);
+    border-color: rgba(255, 74, 79, 0.55);
+    background: linear-gradient(145deg, rgba(230, 36, 41, 0.38), rgba(31, 75, 216, 0.32));
+    box-shadow:
+        0 14px 30px rgba(230, 36, 41, 0.32),
+        0 0 0 1px rgba(63, 123, 255, 0.28);
+}
+
+.card-icon:hover span,
+.card-icon:focus-visible span {
+    transform: scale(1.1) rotate(-6deg);
+}
+
+.card-icon:focus-visible {
+    outline: 2px solid var(--blue-2);
+    outline-offset: 3px;
+}
+
 /* Número decorativo */
 .card-index {
     font-family: "Bebas Neue", Impact, "Arial Narrow", sans-serif;
-    font-size: 2.7rem;
+    font-size: 2.2rem;
     line-height: 0.9;
     letter-spacing: 0.05em;
     color: transparent;
@@ -388,8 +448,11 @@ h1 {
     line-height: 1.68;
 }
 
-/* CTA */
+/* CTA "Ver proyecto" (ahora es un enlace real) */
 .card-cta {
+    position: relative;
+    z-index: 2;
+    align-self: flex-start;
     margin-top: auto;
     padding-top: 14px;
     display: inline-flex;
@@ -400,7 +463,20 @@ h1 {
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--blue-2);
+    text-decoration: none;
+    border-radius: 6px;
     transition: gap 0.3s var(--ease), color 0.3s ease;
+}
+
+.card-cta:hover,
+.card-cta:focus-visible {
+    gap: 14px;
+    color: var(--red-2);
+}
+
+.card-cta:focus-visible {
+    outline: 2px solid var(--blue-2);
+    outline-offset: 4px;
 }
 
 .project-card:hover .card-cta,
