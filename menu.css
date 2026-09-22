@@ -1,17 +1,19 @@
 /* ============================================================
    ZAHID NAZATE — Portafolio de proyectos
-   Identidad visual: rojo / azul / negro (estilo Spider-Man)
+   Identidad visual: Rojo Carmesí / Azul Profundo (Geométrico)
    ============================================================ */
 
 /* ---------- Variables ---------- */
 :root {
-    --red: #e62429;
-    --red-2: #ff4a4f;
-    --red-deep: #a80f18;
+    /* Rojo Carmesí Base: #BF3636 | RGB: 191, 54, 54 */
+    --red: #bf3636;
+    --red-2: #d94b4b; /* Tono más claro para hovers */
+    --red-deep: #8c2626;
 
-    --blue: #1f4bd8;
-    --blue-2: #3f7bff;
-    --blue-deep: #0d1b4c;
+    /* Azul Profundo Base: #254863 | RGB: 37, 72, 99 */
+    --blue: #254863;
+    --blue-2: #3a688c; /* Tono más claro para hovers */
+    --blue-deep: #162b3b;
 
     --black: #07070b;
     --panel: #0f1119;
@@ -31,6 +33,7 @@
 
 html {
     scroll-behavior: smooth;
+    height: 100%;
 }
 
 body {
@@ -42,10 +45,11 @@ body {
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 
+    /* Degradados de fondo actualizados a los nuevos RGB */
     background:
-        radial-gradient(900px 620px at 10% -8%, rgba(230, 36, 41, 0.24), transparent 62%),
-        radial-gradient(900px 700px at 100% 0%, rgba(31, 75, 216, 0.30), transparent 64%),
-        radial-gradient(760px 520px at 50% 118%, rgba(31, 75, 216, 0.18), transparent 68%),
+        radial-gradient(900px 620px at 10% -8%, rgba(191, 54, 54, 0.24), transparent 62%),
+        radial-gradient(900px 700px at 100% 0%, rgba(37, 72, 99, 0.30), transparent 64%),
+        radial-gradient(760px 520px at 50% 118%, rgba(37, 72, 99, 0.18), transparent 68%),
         var(--black);
     background-attachment: fixed;
 }
@@ -60,10 +64,10 @@ body::before {
     background: linear-gradient(90deg,
             var(--red) 0%,
             var(--red) 34%,
-            #7a1f9c 50%,
+            #723f4c 50%, /* Tono de transición ajustado */
             var(--blue) 66%,
             var(--blue) 100%);
-    box-shadow: 0 0 24px rgba(230, 36, 41, 0.45), 0 0 24px rgba(31, 75, 216, 0.4);
+    box-shadow: 0 0 24px rgba(191, 54, 54, 0.45), 0 0 24px rgba(37, 72, 99, 0.4);
 }
 
 /* ---------- Trama de telaraña ---------- */
@@ -79,9 +83,13 @@ body::before {
     mask-image: radial-gradient(120% 85% at 50% 0%, #000 0%, transparent 72%);
 }
 
+/* Estructura para mantener el footer siempre al fondo */
 .page {
     position: relative;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* ---------- Encabezado ---------- */
@@ -90,38 +98,40 @@ body::before {
     text-align: center;
 }
 
+/* Contenedor del logo rediseñado para el isotipo geométrico */
 .logo-wrap {
-    width: 108px;
-    height: 108px;
+    position: relative;
+    width: 120px;
+    height: 120px;
     margin: 0 auto 24px;
     display: grid;
     place-items: center;
-    border-radius: 50%;
-    background:
-        radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.16), transparent 62%),
-        linear-gradient(140deg, rgba(230, 36, 41, 0.38), rgba(31, 75, 216, 0.38));
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    box-shadow:
-        0 0 0 8px rgba(255, 255, 255, 0.025),
-        0 20px 52px rgba(230, 36, 41, 0.28),
-        0 0 64px rgba(31, 75, 216, 0.28);
     animation: floaty 5.5s ease-in-out infinite;
+}
+
+/* Aura de fondo difuminada para resaltar la figura geométrica */
+.logo-wrap::before {
+    content: "";
+    position: absolute;
+    inset: 15px;
+    background: linear-gradient(140deg, rgba(191, 54, 54, 0.5), rgba(37, 72, 99, 0.5));
+    filter: blur(22px);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0.8;
 }
 
 .logo-wrap img {
     display: block;
-    width: 50px;
+    width: 85px;
     height: auto;
-    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.7));
 }
 
 @keyframes floaty {
-
-    0%,
-    100% {
+    0%, 100% {
         transform: translateY(0);
     }
-
     50% {
         transform: translateY(-9px);
     }
@@ -136,29 +146,30 @@ h1 {
     letter-spacing: 0.09em;
     background: linear-gradient(100deg,
             #ffffff 0%,
-            #a9bcff 22%,
+            #8bb5d6 22%,
             var(--blue-2) 44%,
             var(--red-2) 74%,
             var(--red) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    filter: drop-shadow(0 10px 30px rgba(31, 75, 216, 0.35));
+    filter: drop-shadow(0 10px 30px rgba(37, 72, 99, 0.35));
 }
 
 .tagline {
     margin: 14px 0 0;
-    font-size: 0.76rem;
+    font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.32em;
     text-transform: uppercase;
     color: var(--muted);
 }
 
-/* ---------- Contenedor ---------- */
+/* ---------- Contenedor Principal ---------- */
 .container {
-    width: min(1080px, 100% - 48px);
+    width: min(1200px, 100% - 48px);
     margin: 0 auto;
+    flex: 1;
     padding-bottom: 84px;
 }
 
@@ -182,7 +193,7 @@ h1 {
     height: 4px;
     border-radius: 999px;
     background: linear-gradient(90deg, var(--red), var(--blue));
-    box-shadow: 0 0 18px rgba(230, 36, 41, 0.55);
+    box-shadow: 0 0 18px rgba(191, 54, 54, 0.55);
 }
 
 .section-title::after {
@@ -200,8 +211,8 @@ h1 {
     margin: 0 0 28px;
     padding: 9px 18px;
     border-radius: 999px;
-    border: 1px solid rgba(63, 123, 255, 0.35);
-    background: linear-gradient(90deg, rgba(31, 75, 216, 0.20), rgba(31, 75, 216, 0.04));
+    border: 1px solid rgba(58, 104, 140, 0.35);
+    background: linear-gradient(90deg, rgba(37, 72, 99, 0.20), rgba(37, 72, 99, 0.04));
     font-size: 0.76rem;
     font-weight: 700;
     letter-spacing: 0.17em;
@@ -221,8 +232,8 @@ h1 {
 /* ---------- Rejilla de proyectos ---------- */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-    gap: 22px;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 24px;
 }
 
 /* ---------- Tarjeta de proyecto ---------- */
@@ -231,7 +242,7 @@ h1 {
     isolation: isolate;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    height: 100%;
     padding: 26px 24px 22px;
     border-radius: var(--radius);
     border: 1px solid var(--line);
@@ -245,28 +256,18 @@ h1 {
     animation: riseIn 0.6s var(--ease) backwards;
 }
 
-.project-card:nth-child(1) {
-    animation-delay: 0.06s;
-}
-
-.project-card:nth-child(2) {
-    animation-delay: 0.16s;
-}
-
-.project-card:nth-child(3) {
-    animation-delay: 0.26s;
-}
-
-.project-card:nth-child(4) {
-    animation-delay: 0.36s;
-}
+.project-card:nth-child(1) { animation-delay: 0.06s; }
+.project-card:nth-child(2) { animation-delay: 0.16s; }
+.project-card:nth-child(3) { animation-delay: 0.26s; }
+.project-card:nth-child(4) { animation-delay: 0.36s; }
+.project-card:nth-child(5) { animation-delay: 0.46s; }
+.project-card:nth-child(6) { animation-delay: 0.56s; }
 
 @keyframes riseIn {
     from {
         opacity: 0;
         transform: translateY(20px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
@@ -287,7 +288,7 @@ h1 {
     transition: transform 0.45s var(--ease);
 }
 
-/* Halo rojo */
+/* Halo rojo al hacer hover */
 .project-card::after {
     content: "";
     position: absolute;
@@ -296,7 +297,7 @@ h1 {
     width: 230px;
     height: 230px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(230, 36, 41, 0.38), transparent 70%);
+    background: radial-gradient(circle, rgba(191, 54, 54, 0.38), transparent 70%);
     opacity: 0;
     transition: opacity 0.4s ease;
     z-index: -1;
@@ -305,12 +306,12 @@ h1 {
 .project-card:hover,
 .project-card:focus-within {
     transform: translateY(-8px);
-    border-color: rgba(230, 36, 41, 0.45);
+    border-color: rgba(191, 54, 54, 0.45);
     background: linear-gradient(160deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
     box-shadow:
         0 26px 60px rgba(0, 0, 0, 0.62),
-        0 0 0 1px rgba(63, 123, 255, 0.18),
-        0 18px 52px rgba(230, 36, 41, 0.20);
+        0 0 0 1px rgba(58, 104, 140, 0.18),
+        0 18px 52px rgba(191, 54, 54, 0.20);
 }
 
 .project-card:hover::before,
@@ -329,10 +330,10 @@ h1 {
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    margin-bottom: 4px;
+    margin-bottom: 12px;
 }
 
-/* Ícono-emoji del proyecto (también es enlace) */
+/* Ícono-emoji del proyecto */
 .card-icon {
     position: relative;
     z-index: 2;
@@ -345,7 +346,7 @@ h1 {
     font-size: 1.65rem;
     line-height: 1;
     text-decoration: none;
-    background: linear-gradient(145deg, rgba(230, 36, 41, 0.22), rgba(31, 75, 216, 0.22));
+    background: linear-gradient(145deg, rgba(191, 54, 54, 0.22), rgba(37, 72, 99, 0.22));
     border: 1px solid rgba(255, 255, 255, 0.10);
     box-shadow:
         0 8px 20px rgba(0, 0, 0, 0.35),
@@ -366,11 +367,11 @@ h1 {
 .card-icon:hover,
 .card-icon:focus-visible {
     transform: translateY(-3px);
-    border-color: rgba(255, 74, 79, 0.55);
-    background: linear-gradient(145deg, rgba(230, 36, 41, 0.38), rgba(31, 75, 216, 0.32));
+    border-color: rgba(217, 75, 75, 0.55);
+    background: linear-gradient(145deg, rgba(191, 54, 54, 0.38), rgba(37, 72, 99, 0.32));
     box-shadow:
-        0 14px 30px rgba(230, 36, 41, 0.32),
-        0 0 0 1px rgba(63, 123, 255, 0.28);
+        0 14px 30px rgba(191, 54, 54, 0.32),
+        0 0 0 1px rgba(58, 104, 140, 0.28);
 }
 
 .card-icon:hover span,
@@ -396,12 +397,12 @@ h1 {
 
 .project-card:hover .card-index,
 .project-card:focus-within .card-index {
-    -webkit-text-stroke-color: rgba(255, 74, 79, 0.65);
+    -webkit-text-stroke-color: rgba(217, 75, 75, 0.65);
 }
 
-/* Título / enlace */
+/* ---------- Textos de la tarjeta ---------- */
 .card-title {
-    margin: 0;
+    margin: 0 0 8px 0;
     font-size: 1.16rem;
     font-weight: 700;
     letter-spacing: 0.01em;
@@ -446,14 +447,15 @@ h1 {
     color: var(--muted);
     font-size: 0.94rem;
     line-height: 1.68;
+    flex-grow: 1;
 }
 
-/* CTA "Ver proyecto" (ahora es un enlace real) */
+/* CTA "Ver proyecto" */
 .card-cta {
     position: relative;
     z-index: 2;
     align-self: flex-start;
-    margin-top: auto;
+    margin-top: 18px;
     padding-top: 14px;
     display: inline-flex;
     align-items: center;
@@ -490,7 +492,7 @@ h1 {
     padding: 30px 24px 44px;
     text-align: center;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
-    background: linear-gradient(180deg, transparent, rgba(31, 75, 216, 0.07));
+    background: linear-gradient(180deg, transparent, rgba(37, 72, 99, 0.07));
 }
 
 .site-footer p {
@@ -516,6 +518,10 @@ h1 {
         width: 90px;
         height: 90px;
     }
+    
+    .logo-wrap img {
+        width: 65px;
+    }
 
     .container {
         width: min(1080px, 100% - 32px);
@@ -533,7 +539,6 @@ h1 {
 
 /* ---------- Accesibilidad: movimiento reducido ---------- */
 @media (prefers-reduced-motion: reduce) {
-
     *,
     *::before,
     *::after {
